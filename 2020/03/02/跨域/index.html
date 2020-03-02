@@ -20,23 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="hexo搭建播客—第一篇文章">
+  <meta name="description" content="跨域是什么 同源策略请求( 协议,域名,端口号都相同 ) 非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客">
-<meta property="og:url" content="http://yoursite.com/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="跨域">
+<meta property="og:url" content="http://yoursite.com/2020/03/02/%E8%B7%A8%E5%9F%9F/index.html">
 <meta property="og:site_name" content="向往">
-<meta property="og:description" content="hexo搭建播客—第一篇文章">
+<meta property="og:description" content="跨域是什么 同源策略请求( 协议,域名,端口号都相同 ) 非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-29T10:11:00.000Z">
-<meta property="article:modified_time" content="2020-03-02T13:23:44.751Z">
+<meta property="article:published_time" content="2020-03-02T10:11:00.000Z">
+<meta property="article:modified_time" content="2020-03-02T16:24:14.286Z">
 <meta property="article:author" content="向往">
-<meta property="article:tag" content="Js">
-<meta property="article:tag" content="Git">
-<meta property="article:tag" content="Vue">
-<meta property="article:tag" content="React">
+<meta property="article:tag" content="跨域">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="http://yoursite.com/2020/03/02/%E8%B7%A8%E5%9F%9F/">
 
 
 <script id="page-configurations">
@@ -48,7 +45,7 @@
   };
 </script>
 
-  <title>我的第一篇博客 | 向往</title>
+  <title>跨域 | 向往</title>
   
 
 
@@ -168,7 +165,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E8%B7%A8%E5%9F%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/1.jpg">
@@ -181,7 +178,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我的第一篇博客
+          跨域
         </h1>
 
         <div class="post-meta">
@@ -191,24 +188,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-02-29 18:11:00" itemprop="dateCreated datePublished" datetime="2020-02-29T18:11:00+08:00">2020-02-29</time>
+              <time title="创建时间：2020-03-02 18:11:00" itemprop="dateCreated datePublished" datetime="2020-03-02T18:11:00+08:00">2020-03-02</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-02 21:23:44" itemprop="dateModified" datetime="2020-03-02T21:23:44+08:00">2020-03-02</time>
+                <time title="修改时间：2020-03-03 00:24:14" itemprop="dateModified" datetime="2020-03-03T00:24:14+08:00">2020-03-03</time>
               </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
-            </span>
 
           
 
@@ -221,7 +209,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="hexo搭建播客—第一篇文章"><a href="#hexo搭建播客—第一篇文章" class="headerlink" title="hexo搭建播客—第一篇文章"></a>hexo搭建播客—第一篇文章</h2>
+        <h2 id="跨域是什么"><a href="#跨域是什么" class="headerlink" title="跨域是什么"></a>跨域是什么</h2><ul>
+<li>同源策略请求( 协议,域名,端口号都相同 )</li>
+<li>非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )<a id="more"></a>
+<h2 id="跨域解决方法"><a href="#跨域解决方法" class="headerlink" title="跨域解决方法"></a>跨域解决方法</h2></li>
+</ul>
+<ol>
+<li>JSONP<blockquote>
+<p>script, img, iframe标签中的src属性是没有同源策略限制的, 例如借用CDN使用jquery库<br> JQ中: 请求时添加dataType: ‘jsonp’属性来指定请求方式<br> JSONP原理: 前端创建一个回调函数, 然后服务器调用这个函数并且将JSON数据形式作为参数传递, 完成回调<br> JSONP总结: 兼容性非常好, 限制就是只能使用get方式发起请求</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 使用jsonp的方式动态创建script标签实现jsonp跨域请求</span><br><span class="line">// 实现百度搜索关键词的功能</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"input"</span>&gt;</span><br><span class="line">    &lt;button id=<span class="string">"btn"</span>&gt;搜索&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"ul"</span> style=<span class="string">"list-style-type: none;padding: 0"</span>&gt;</span><br><span class="line">      &lt;!-- &lt;li&gt;搜索到的值&lt;/li&gt; --&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      // http://api.asilu.com/<span class="comment">#sug-baidu jsonp在线接口</span></span><br><span class="line">      <span class="keyword">function</span> showJsonp(res)&#123;</span><br><span class="line">        console.log(res) // &#123;q: <span class="string">"123"</span>, p: <span class="literal">false</span>, s: Array(10)&#125;</span><br><span class="line">        <span class="built_in">let</span> data = res.s</span><br><span class="line">        // 将res.s中的数据渲染到li标签中</span><br><span class="line">        <span class="built_in">let</span> str = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">let</span> i =0; i&lt;data.length; i++)&#123;</span><br><span class="line">          str += `&lt;li class=<span class="string">"active"</span>&gt;<span class="variable">$&#123;data[i]&#125;</span>&lt;/li&gt;`</span><br><span class="line">        &#125;</span><br><span class="line">        // 添加到ul标签内部</span><br><span class="line">        ul.innerHTML = str</span><br><span class="line">      &#125;</span><br><span class="line">      btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        // 点击搜索时获取输入框的值</span><br><span class="line">        <span class="built_in">let</span> value = input.value</span><br><span class="line">        // console.log(value)</span><br><span class="line">        <span class="built_in">let</span> url = <span class="string">'http://suggestion.baidu.com/su?cb=showJsonp&amp;wd='</span>+value</span><br><span class="line">        <span class="built_in">let</span> script = document.createElement(<span class="string">'script'</span>)</span><br><span class="line">        script.setAttribute(<span class="string">'src'</span>, url)</span><br><span class="line">        script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">        document.body.appendChild(script)</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ol>
+
     </div>
 
     
@@ -230,10 +229,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Js/" rel="tag"># Js</a>
-              <a href="/tags/Git/" rel="tag"># Git</a>
-              <a href="/tags/Vue/" rel="tag"># Vue</a>
-              <a href="/tags/React/" rel="tag"># React</a>
+              <a href="/tags/%E8%B7%A8%E5%9F%9F/" rel="tag"># 跨域</a>
           </div>
 
         
@@ -241,11 +237,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/03/02/%E8%B7%A8%E5%9F%9F/" rel="next" title="跨域">
-      跨域 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/02/29/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="prev" title="我的第一篇博客">
+      <i class="fa fa-chevron-left"></i> 我的第一篇博客
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -305,7 +301,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo搭建播客—第一篇文章"><span class="nav-number">1.</span> <span class="nav-text">hexo搭建播客—第一篇文章</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域是什么"><span class="nav-number">1.</span> <span class="nav-text">跨域是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域解决方法"><span class="nav-number">2.</span> <span class="nav-text">跨域解决方法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
