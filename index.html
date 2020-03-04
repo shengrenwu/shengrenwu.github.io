@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-03-04 13:11:00 / 修改时间：14:39:57" itemprop="dateCreated datePublished" datetime="2020-03-04T13:11:00+08:00">2020-03-04</time>
+              <time title="创建时间：2020-03-04 13:11:00 / 修改时间：14:42:19" itemprop="dateCreated datePublished" datetime="2020-03-04T13:11:00+08:00">2020-03-04</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -216,14 +216,14 @@
 <blockquote>
 <p>触发高频事件时在最后一次事件被触发n秒后执行函数</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> // 防抖函数</span><br><span class="line">  <span class="keyword">function</span> debounce(fn, <span class="built_in">wait</span>)&#123;</span><br><span class="line">    <span class="built_in">let</span> timer = null // 创建一个标记用来存放定时器的返回值</span><br><span class="line">    <span class="built_in">return</span> (...args) =&gt; &#123;</span><br><span class="line">      clearTimeout(timer) // 每当用户输入的时候把前一个setTimeout 清除掉</span><br><span class="line">      timer = window.setTimeout(()=&gt;&#123;</span><br><span class="line">        fn.apply(this, args) // this -&gt; window  因为fn函数是在window下创建的, 需要保证this指向</span><br><span class="line">      &#125;, <span class="built_in">wait</span>)</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">// 获取输入框值的函数</span><br><span class="line"><span class="keyword">function</span> getValue(e)&#123;</span><br><span class="line">  console.log(e.target.value)</span><br><span class="line">&#125;</span><br><span class="line">// 实现防抖</span><br><span class="line">ipt.addEventListener(<span class="string">'input'</span>, debounce(getValue, 2000))</span><br></pre></td></tr></table></figure>
-<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><blockquote>
-<p>高频事件触发, 但是在n秒只会执行一次</p>
-</blockquote>
-<blockquote>
-<p>节流会稀释函数的执行频率, 固定时间内只执行一次</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 节流函数</span><br><span class="line"><span class="keyword">function</span> throttle(fn, delay)&#123;</span><br><span class="line">    <span class="built_in">let</span> flag = <span class="literal">true</span></span><br><span class="line">    <span class="built_in">return</span> (...args)=&gt;&#123;</span><br><span class="line">      <span class="keyword">if</span>(!flag) <span class="built_in">return</span></span><br><span class="line">      flag = <span class="literal">false</span></span><br><span class="line">      setTimeout(()=&gt;&#123;</span><br><span class="line">        fn.apply(this, args)</span><br><span class="line">        flag = <span class="literal">true</span></span><br><span class="line">      &#125;, delay)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 获取输入框值的函数</span><br><span class="line"><span class="keyword">function</span> getValue(e)&#123;</span><br><span class="line">  console.log(e.target.value)</span><br><span class="line">&#125;</span><br><span class="line">// 实现节流</span><br><span class="line">ipt.addEventListener(<span class="string">'input'</span>, throttle(getValue, 1000))</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/04/js/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -356,7 +356,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-03 14:43:42" itemprop="dateModified" datetime="2020-03-03T14:43:42+08:00">2020-03-03</time>
+                <time title="修改时间：2020-03-04 14:45:03" itemprop="dateModified" datetime="2020-03-04T14:45:03+08:00">2020-03-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -408,7 +408,7 @@
 
 </li>
 </ol>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><code>[]()</code><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a>  </p>
+<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p><code>[]()</code><br><a href="http://baidu.com" target="_blank" rel="noopener">百度</a><br><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">hexo中文文档</a><br><a href="https://theme-next.iissnan.com/" target="_blank" rel="noopener">theme-next使用文档</a></p>
 
       
     </div>
@@ -506,7 +506,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
