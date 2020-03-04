@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="跨域是什么 同源策略请求( 协议,域名,端口号都相同 ) 非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )">
@@ -28,7 +28,7 @@
 <meta property="og:description" content="跨域是什么 同源策略请求( 协议,域名,端口号都相同 ) 非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-02T10:11:00.000Z">
-<meta property="article:modified_time" content="2020-03-02T16:24:14.286Z">
+<meta property="article:modified_time" content="2020-03-04T05:40:57.803Z">
 <meta property="article:author" content="向往">
 <meta property="article:tag" content="跨域">
 <meta name="twitter:card" content="summary">
@@ -79,7 +79,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -101,7 +101,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">Hexo Blog</p>
+        <p class="site-subtitle">真人游戏</p>
   </div>
 
   <div class="site-nav-right">
@@ -168,7 +168,7 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/%E8%B7%A8%E5%9F%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="向往">
       <meta itemprop="description" content="星河滚烫你是人间理想">
     </span>
@@ -195,7 +195,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-03 00:24:14" itemprop="dateModified" datetime="2020-03-03T00:24:14+08:00">2020-03-03</time>
+                <time title="修改时间：2020-03-04 13:40:57" itemprop="dateModified" datetime="2020-03-04T13:40:57+08:00">2020-03-04</time>
               </span>
 
           
@@ -212,14 +212,74 @@
         <h2 id="跨域是什么"><a href="#跨域是什么" class="headerlink" title="跨域是什么"></a>跨域是什么</h2><ul>
 <li>同源策略请求( 协议,域名,端口号都相同 )</li>
 <li>非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )<a id="more"></a>
-<h2 id="跨域解决方法"><a href="#跨域解决方法" class="headerlink" title="跨域解决方法"></a>跨域解决方法</h2></li>
-</ul>
-<ol>
-<li>JSONP<blockquote>
-<p>script, img, iframe标签中的src属性是没有同源策略限制的, 例如借用CDN使用jquery库<br> JQ中: 请求时添加dataType: ‘jsonp’属性来指定请求方式<br> JSONP原理: 前端创建一个回调函数, 然后服务器调用这个函数并且将JSON数据形式作为参数传递, 完成回调<br> JSONP总结: 兼容性非常好, 限制就是只能使用get方式发起请求</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 使用jsonp的方式动态创建script标签实现jsonp跨域请求</span><br><span class="line">// 实现百度搜索关键词的功能</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"input"</span>&gt;</span><br><span class="line">    &lt;button id=<span class="string">"btn"</span>&gt;搜索&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"ul"</span> style=<span class="string">"list-style-type: none;padding: 0"</span>&gt;</span><br><span class="line">      &lt;!-- &lt;li&gt;搜索到的值&lt;/li&gt; --&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      // http://api.asilu.com/<span class="comment">#sug-baidu jsonp在线接口</span></span><br><span class="line">      <span class="keyword">function</span> showJsonp(res)&#123;</span><br><span class="line">        console.log(res) // &#123;q: <span class="string">"123"</span>, p: <span class="literal">false</span>, s: Array(10)&#125;</span><br><span class="line">        <span class="built_in">let</span> data = res.s</span><br><span class="line">        // 将res.s中的数据渲染到li标签中</span><br><span class="line">        <span class="built_in">let</span> str = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">let</span> i =0; i&lt;data.length; i++)&#123;</span><br><span class="line">          str += `&lt;li class=<span class="string">"active"</span>&gt;<span class="variable">$&#123;data[i]&#125;</span>&lt;/li&gt;`</span><br><span class="line">        &#125;</span><br><span class="line">        // 添加到ul标签内部</span><br><span class="line">        ul.innerHTML = str</span><br><span class="line">      &#125;</span><br><span class="line">      btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        // 点击搜索时获取输入框的值</span><br><span class="line">        <span class="built_in">let</span> value = input.value</span><br><span class="line">        // console.log(value)</span><br><span class="line">        <span class="built_in">let</span> url = <span class="string">'http://suggestion.baidu.com/su?cb=showJsonp&amp;wd='</span>+value</span><br><span class="line">        <span class="built_in">let</span> script = document.createElement(<span class="string">'script'</span>)</span><br><span class="line">        script.setAttribute(<span class="string">'src'</span>, url)</span><br><span class="line">        script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">        document.body.appendChild(script)</span><br><span class="line">      &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br></pre></td></tr></table></figure></blockquote>
+
 </li>
-</ol>
+</ul>
+<h2 id="跨域解决方法"><a href="#跨域解决方法" class="headerlink" title="跨域解决方法"></a>跨域解决方法</h2><h3 id="1-JSONP"><a href="#1-JSONP" class="headerlink" title="1.JSONP"></a>1.JSONP</h3><blockquote>
+<p>script, img, iframe标签中的src属性是没有同源策略限制的, 例如借用CDN使用jquery库</p>
+</blockquote>
+<pre><code>JQ中使用Jsonp: 请求时添加dataType: &apos;jsonp&apos;属性来指定请求方式
+Vue使用Jsonp: 下载jsonp依赖进行jsonp请求
+JSONP原理: 前端创建一个回调函数, 然后服务器调用这个函数并且将JSON数据作为参数传递, 完成回调
+JSONP总结: 兼容性非常好, 限制就是只能使用get方式发起请求(因为src, href都是资源文件请求), 安全性也存在问题
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 使用jsonp的方式动态创建script标签实现jsonp跨域请求</span><br><span class="line">// 实现百度搜索关键词的功能</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> id=<span class="string">"input"</span>&gt;</span><br><span class="line">    &lt;button id=<span class="string">"btn"</span>&gt;搜索&lt;/button&gt;</span><br><span class="line">    &lt;ul id=<span class="string">"ul"</span> style=<span class="string">"list-style-type: none;padding: 0"</span>&gt;</span><br><span class="line">      &lt;!-- &lt;li&gt;搜索到的值&lt;/li&gt; --&gt;</span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">      // http://api.asilu.com/<span class="comment">#sug-baidu jsonp在线接口</span></span><br><span class="line">      <span class="keyword">function</span> showJsonp(res)&#123;</span><br><span class="line">        console.log(res) // &#123;q: <span class="string">"123"</span>, p: <span class="literal">false</span>, s: Array(10)&#125;</span><br><span class="line">        <span class="built_in">let</span> data = res.s</span><br><span class="line">        // 将res.s中的数据渲染到li标签中</span><br><span class="line">        <span class="built_in">let</span> str = <span class="string">''</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">let</span> i =0; i&lt;data.length; i++)&#123;</span><br><span class="line">          str += `&lt;li class=<span class="string">"active"</span>&gt;<span class="variable">$&#123;data[i]&#125;</span>&lt;/li&gt;`</span><br><span class="line">        &#125;</span><br><span class="line">        // 添加到ul标签内部</span><br><span class="line">        ul.innerHTML = str</span><br><span class="line">      &#125;</span><br><span class="line">      btn.onclick = <span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">        // 点击搜索时获取输入框的值</span><br><span class="line">        <span class="built_in">let</span> value = input.value</span><br><span class="line">        // console.log(value)</span><br><span class="line">        <span class="built_in">let</span> url = <span class="string">'http://suggestion.baidu.com/su?cb=showJsonp&amp;wd='</span>+value</span><br><span class="line">        <span class="built_in">let</span> script = document.createElement(<span class="string">'script'</span>)</span><br><span class="line">        script.setAttribute(<span class="string">'src'</span>, url)</span><br><span class="line">        script.setAttribute(<span class="string">'type'</span>, <span class="string">'text/javascript'</span>)</span><br><span class="line">        document.body.appendChild(script)</span><br><span class="line">      &#125;</span><br><span class="line">   &lt;/script&gt;</span><br><span class="line"> &lt;/body&gt;</span><br></pre></td></tr></table></figure></code></pre><h3 id="2-CORS跨域资源共享"><a href="#2-CORS跨域资源共享" class="headerlink" title="2.CORS跨域资源共享"></a>2.CORS跨域资源共享</h3><blockquote>
+<p>有局限性, 而且主要工作在后端</p>
+</blockquote>
+<ul>
+<li>客户端发送axios请求<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// axios进行配置</span><br><span class="line"> - 跨域请求需要带cookie身份验证</span><br><span class="line"> - 默认地址</span><br><span class="line"> - 请求拦截器</span><br><span class="line"> - 相应拦截器</span><br></pre></td></tr></table></figure></li>
+<li>服务器端设置相关的头信息(需要处理options试探性请求)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 设置跨域和相应数据格式</span><br><span class="line">app.all(<span class="string">'*'</span>, <span class="keyword">function</span>(req, res, next) &#123;</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>)</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'X-Requested-With, mytoken'</span>)</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'X-Requested-With, Authorization'</span>)</span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, <span class="string">'application/json;charset=utf-8'</span>)</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'Content-Type,Content-Length, Authorization, Accept,X-Requested-With'</span>)</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'PUT,POST,GET,DELETE,OPTIONS'</span>)</span><br><span class="line">  res.header(<span class="string">'X-Powered-By'</span>, <span class="string">' 3.2.1'</span>)</span><br><span class="line">  <span class="keyword">if</span> (req.method == <span class="string">'OPTIONS'</span>) res.send(200)</span><br><span class="line">  /*让options请求快速返回*/ <span class="keyword">else</span> next()</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">ps局限: 如果使用*号, 可以实现多源配置, 但是就不允许携带cookie了</span><br><span class="line">    不用*号只能有一个具体地址,也就允许cookie了</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-proxy"><a href="#3-proxy" class="headerlink" title="3.proxy"></a>3.proxy</h3><blockquote>
+<p>纯前端实现跨域, 只能在开发环境中使用, 生产环境需要使用nginx反向代理</p>
+</blockquote>
+<blockquote>
+<p>webpack webpack-cli webpack-dev-server</p>
+</blockquote>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  vue中</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    <span class="string">'/'</span>: &#123;</span><br><span class="line">      target: <span class="string">'目标请求地址'</span>,</span><br><span class="line">      changeOrigin: <span class="literal">true</span> // 允许跨域</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">proxy相当于node模拟了一个nginx服务请求, 通过搭建中转服务器来转发请求规避跨越问题 proxy和nginx原理相同</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th align="left">开发环境</th>
+<th align="left">生产环境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">cors</td>
+<td align="left">cors</td>
+</tr>
+<tr>
+<td align="left">proxy</td>
+<td align="left">nginx</td>
+</tr>
+</tbody></table>
+<h3 id="4-nginx反向代理"><a href="#4-nginx反向代理" class="headerlink" title="4.nginx反向代理"></a>4.nginx反向代理</h3><blockquote>
+<p>需要搭建一个中转nginx服务器用于转发请求, 服务器部署的事</p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.b.com" target="_blank" rel="noopener">www.b.com</a> -&gt; <a href="http://www.a.com" target="_blank" rel="noopener">www.a.com</a></p>
+</blockquote>
+<blockquote>
+<p>nginx目录下的nginx.conf修改</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       80;</span><br><span class="line">    server_name  www.a.com; <span class="comment"># 指定的源</span></span><br><span class="line">    access_log  logs/test.access.log;</span><br><span class="line">    <span class="comment"># 匹配以/apis/开头的请求</span></span><br><span class="line">    location ^~ /apis/ &#123;</span><br><span class="line">      proxy_pass http://www.b.com/;  <span class="comment">#注意域名后有一个/  需要反向代理的源</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="其他的跨域解决办法"><a href="#其他的跨域解决办法" class="headerlink" title="其他的跨域解决办法"></a>其他的跨域解决办法</h2><h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><blockquote>
+<p>postMessage是H5新的API</p>
+</blockquote>
+<blockquote>
+<p>不同域页面间的消息传递 <a href="http://www.a.com/a.html-&gt;www.b.com/b.com" target="_blank" rel="noopener">www.a.com/a.html-&gt;www.b.com/b.com</a></p>
+</blockquote>
+<h3 id="window-name"><a href="#window-name" class="headerlink" title="window.name"></a>window.name</h3><blockquote>
+<p>需要借助iframe标签</p>
+</blockquote>
+<h3 id="location-hash"><a href="#location-hash" class="headerlink" title="location.hash"></a>location.hash</h3><h3 id="Websocket"><a href="#Websocket" class="headerlink" title="Websocket"></a>Websocket</h3><blockquote>
+<p>Websocket没有跨域限制</p>
+</blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/54270776" target="_blank" rel="noopener">参考</a></p>
 
     </div>
 
@@ -301,14 +361,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域是什么"><span class="nav-number">1.</span> <span class="nav-text">跨域是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域解决方法"><span class="nav-number">2.</span> <span class="nav-text">跨域解决方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域是什么"><span class="nav-number">1.</span> <span class="nav-text">跨域是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域解决方法"><span class="nav-number">2.</span> <span class="nav-text">跨域解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-JSONP"><span class="nav-number">2.1.</span> <span class="nav-text">1.JSONP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CORS跨域资源共享"><span class="nav-number">2.2.</span> <span class="nav-text">2.CORS跨域资源共享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-proxy"><span class="nav-number">2.3.</span> <span class="nav-text">3.proxy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-nginx反向代理"><span class="nav-number">2.4.</span> <span class="nav-text">4.nginx反向代理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他的跨域解决办法"><span class="nav-number">3.</span> <span class="nav-text">其他的跨域解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#postMessage"><span class="nav-number">3.1.</span> <span class="nav-text">postMessage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-name"><span class="nav-number">3.2.</span> <span class="nav-text">window.name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location-hash"><span class="nav-number">3.3.</span> <span class="nav-text">location.hash</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Websocket"><span class="nav-number">3.4.</span> <span class="nav-text">Websocket</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="向往"
-      src="/images/1.jpg">
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">向往</p>
   <div class="site-description" itemprop="description">星河滚烫你是人间理想</div>
 </div>
@@ -385,8 +445,12 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
