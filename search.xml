@@ -1,11 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vue生命周期</title>
+    <url>/2020/03/11/Vue/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
+    <content><![CDATA[<h3 id="生命周期钩子函数"><a href="#生命周期钩子函数" class="headerlink" title="生命周期钩子函数"></a>生命周期钩子函数</h3><a id="more"></a>
+<table>
+<thead>
+<tr>
+<th align="left">生命周期钩子</th>
+<th align="left">组件装态</th>
+<th align="left">实践</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">beforeCreate</td>
+<td align="left">初始化界面前, data未完成, 值为undefined</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">created</td>
+<td align="left">初始化界面后, Vue实例创建完成, 可以访问data, computed, watch, methods上的方法和属性, 但是并未挂载dom, 不能访问$el的属性</td>
+<td align="left">进行axios数据请求</td>
+</tr>
+<tr>
+<td align="left">beforeMount</td>
+<td align="left">渲染dom前, 会找到对应的template, 并编译成render函数</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">mounted</td>
+<td align="left">实例挂载到DOM上, 可以使用$refs访问DOM节点</td>
+<td align="left">获取vNode信息和操作, ajax请求, echarts数据请求</td>
+</tr>
+<tr>
+<td align="left">beforeUpdate</td>
+<td align="left">响应式数据更新时调用, 发生在虚拟DOM打补丁之前</td>
+<td align="left">适合在更新之前访问现有的DOM, 比如手动移出已添加的事件监听器</td>
+</tr>
+<tr>
+<td align="left">updated</td>
+<td align="left">虚拟DOM重新渲染和打补丁之后调用, 组件DOM已经更新, 可执行依赖于DOM的操作</td>
+<td align="left">避免在这个钩子函数中操作数据, 可能会陷入死循环</td>
+</tr>
+<tr>
+<td align="left">beforeDestroy</td>
+<td align="left">实例销毁之前调用, 这一步实例的方法都还可用</td>
+<td align="left">常用与销毁定时器, 解绑全局事件, 销毁插件对象等操作</td>
+</tr>
+<tr>
+<td align="left">destroyed</td>
+<td align="left">实例销毁后调用, 调用后, Vue实例指示的所有东西都会解绑定, 所有的事件监听器会被移出, 所有的子实例也会被销毁</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h3 id="单个组件生命周期"><a href="#单个组件生命周期" class="headerlink" title="单个组件生命周期"></a>单个组件生命周期</h3><ol>
+<li>初始化组件时, 仅执行beforeCreate/Created/beforeMount/Mounted四个钩子函数</li>
+<li>当data中定义的变量改变时会执行beforeUpdate/updated钩子函数</li>
+<li>档切换组件(当前组件为缓存时), 会执行beforeDestory/destroyed两个钩子函数</li>
+<li>初始化和销毁时的生命周期钩子函数只会执行一次, beforeUpdate/update可执行多次</li>
+</ol>
+<h3 id="父子组件的生命周期"><a href="#父子组件的生命周期" class="headerlink" title="父子组件的生命周期"></a>父子组件的生命周期</h3><p>初始化组件时:<br> –f–beforeCreate<br> –f–created<br> –f–beforeMount<br> –c–beforeCreate接收不到props中的数据–data未初始化<br> –c–createdchild<br> –c–beforeMount<br> –c–mounted<br> –f–mounted<br>当子组件data中的值发生变化时</p>
+]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>杂/观察者和订阅者模式</title>
+    <url>/2020/03/11/%E6%9D%82/%E8%A7%82%E5%AF%9F%E8%80%85%E5%92%8C%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>vuex使用</title>
     <url>/2020/03/08/Vue/vuex/</url>
     <content><![CDATA[<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><blockquote>
 <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式, 集中式存储所有组件状态(数据), 方便组件之间的数据共享</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="Vuex好处"><a href="#Vuex好处" class="headerlink" title="Vuex好处"></a>Vuex好处</h3><ol>
 <li>能够在vuex中集中管理共享的数据, 易于开发和后期维护</li>
 <li>能够高效地实现组件之间的数据共享, 提高开发效率</li>
@@ -49,30 +120,6 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a <span class="comment">// -&gt; moduleA 的状态</span></span><br><span class="line">store.state.b <span class="comment">// -&gt; moduleB 的状态</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>vue</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>引入css的两种方式</title>
-    <url>/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><p><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
-<a id="more"></a>
-<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><code>@import url(&quot;css/style.css&quot;)</code></p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
-<li>link<ul>
-<li>属于XHTML标签, 还有rel连接属性等</li>
-<li>优先加载CSS文件到页面</li>
-</ul>
-</li>
-<li>@import<ul>
-<li>属于CSS, 只能加载CSS</li>
-<li>先加载HTML结构在加载CSS文件, 有时候使用@import加载css的页面时会没有样式</li>
-</ul>
-</li>
-</ul>
-<p>– 使用link标签</p>
-]]></content>
-      <categories>
-        <category>css</category>
       </categories>
   </entry>
   <entry>
@@ -135,6 +182,30 @@
 ]]></content>
       <categories>
         <category>html</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>引入css的两种方式</title>
+    <url>/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><p><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
+<a id="more"></a>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><code>@import url(&quot;css/style.css&quot;)</code></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>link<ul>
+<li>属于XHTML标签, 还有rel连接属性等</li>
+<li>优先加载CSS文件到页面</li>
+</ul>
+</li>
+<li>@import<ul>
+<li>属于CSS, 只能加载CSS</li>
+<li>先加载HTML结构在加载CSS文件, 有时候使用@import加载css的页面时会没有样式</li>
+</ul>
+</li>
+</ul>
+<p>– 使用link标签</p>
+]]></content>
+      <categories>
+        <category>css</category>
       </categories>
   </entry>
   <entry>
