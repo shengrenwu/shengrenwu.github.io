@@ -1,6 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>es6面向对象</title>
+    <url>/2020/03/13/js/es6%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h2 id="es6创建类"><a href="#es6创建类" class="headerlink" title="es6创建类"></a>es6创建类</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// es5创建类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fn</span></span>&#123;</span><br><span class="line">    <span class="comment">// 也可以给实例创建属性</span></span><br><span class="line">    y = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等价于之前的构造函数体</span></span><br><span class="line">    <span class="keyword">constructor</span>(n=1, m=1) &#123;</span><br><span class="line">      <span class="keyword">this</span>.x = n + m		</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  方法直接写, 就是添加在类原形上的方法</span></span><br><span class="line">    getX()&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.x)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 前边设置static的, 把当前Fn当做普通对象设置键值对, 只能Fn.gety()使用</span></span><br><span class="line">    <span class="keyword">static</span> gety()&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'类的私有方法'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 静态属性(只有Fn能使用)</span></span><br><span class="line">    <span class="keyword">static</span> one = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建实例对象</span></span><br><span class="line"><span class="keyword">let</span> f1 = <span class="keyword">new</span> Fn(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">console</span>.log(f1.one, Fn.one) <span class="comment">// undefined 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Fn()  // 当做普通函数执行会报错</span></span><br><span class="line"><span class="built_in">console</span>.dir(Fn)  <span class="comment">// </span></span><br><span class="line"><span class="built_in">console</span>.log(f1) <span class="comment">// &#123;x:30, y:100&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2>]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>es5面向对象</title>
+    <url>/2020/03/13/js/es5%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<h2 id="构造函数创建对象"><a href="#构造函数创建对象" class="headerlink" title="构造函数创建对象"></a>构造函数创建对象</h2><a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Student构造函数, es6中叫Student类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 通过new调用的this指向实例, name和age都是实例的属性, 构造函数不能直接调用</span></span><br><span class="line">  <span class="keyword">this</span>.name = name</span><br><span class="line">  <span class="keyword">this</span>.age = age</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 不好的创建方法方式,方法是共用的, s1.err不等于s2.err 也就是指向不同的内存地址,相同的方法会占用内存</span></span><br><span class="line">  <span class="keyword">this</span>.err = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 原型创建属性</span></span><br><span class="line">Student.prototype.type = <span class="string">'人类'</span></span><br><span class="line"><span class="comment">// 原型创建方法 所有实例的方法都指向这一个方法</span></span><br><span class="line">Student.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'吃东西'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例</span></span><br><span class="line"><span class="keyword">var</span> s1 = <span class="keyword">new</span> Student(<span class="string">'xx'</span>, <span class="number">18</span>)</span><br><span class="line"><span class="keyword">var</span> s2 = <span class="keyword">new</span> Student(<span class="string">'yy'</span>, <span class="number">19</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  1.instanceof本意就是检测实例是否隶属于某个类, 所以可以使用instanceof检测引用数据类型</span></span><br><span class="line"><span class="built_in">console</span>.log(s1 <span class="keyword">instanceof</span> Student) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.将方法存放在prototype对象上的好处</span></span><br><span class="line"><span class="built_in">console</span>.log(s1.eat === s2.eat) <span class="comment">// true  相同的方法都在Student原型上, 指向同一个内存地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 构造函数的原型上有constructor属性指向构造函数本身</span></span><br><span class="line"><span class="built_in">console</span>.log(Student.prototype.constructor === Student) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="实例原型关系图"><a href="#实例原型关系图" class="headerlink" title="实例原型关系图"></a>实例原型关系图</h3><img src="/images/prototype.png"/>
+> 原型链: 实例查找方法时, 自身如果没有, 就会通过__proto__向构造函数的原型上查找某方法(实例调用方法时会先找私有属性, 找不到就回去找共有属性)
+
+<ol>
+<li>new 构造符做了哪些事情?<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;</span><br><span class="line">obj.__proto__ = S.prototype</span><br><span class="line">S.call(obj)</span><br><span class="line"><span class="keyword">return</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">创建一个空对象</span><br><span class="line"><span class="keyword">this</span>指向这个对象</span><br><span class="line">执行构造函数中的代码</span><br><span class="line">返回新对象</span><br></pre></td></tr></table></figure></li>
+<li>isPrototypeOf()<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">isPrototypeOf方法用来判断某个prototype对象和某个实例之间的关系</span><br><span class="line"></span><br><span class="line">  alert(Student.prototype.isPrototypeOf(s1)) <span class="comment">//true</span></span><br><span class="line">  alert(Student.prototype.isPrototypeOf(s2)) <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>hasOwnProperty()<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">每一个实例都有一个hasOwnProperty方法, 用于判断某一个属性是不是构造函数内的属性</span><br><span class="line">该方法会忽略掉那些从原型链定义的属性。因为hasOwnProperty是 JavaScript 中唯一一个处理属性但是不查找原型链的函数。</span><br><span class="line">  <span class="comment">// 检测属性</span></span><br><span class="line">  <span class="built_in">console</span>.log(s1.hasOwnProperty(<span class="string">'name'</span>)); <span class="comment">// true</span></span><br><span class="line">  <span class="built_in">console</span>.log(s2.hasOwnProperty(<span class="string">'type'</span>)); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+<li>in运算符<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 检测属性, 不管是构造函数内部还是原型上的属性, 只要有就是true</span></span><br><span class="line">　　alert(<span class="string">"name"</span> <span class="keyword">in</span> s1) <span class="comment">// true</span></span><br><span class="line">　　alert(<span class="string">"type"</span> <span class="keyword">in</span> s2) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>js</category>
+      </categories>
+      <tags>
+        <tag>面向对象</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>发布订阅设计模式</title>
+    <url>/2020/03/12/%E6%9D%82/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<blockquote>
+<p>发布订阅</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">人的日常生活离不开各种人际交涉，比如你的朋友有很多，这时候你要结婚了，要以你为发布者，打开你的通讯录，挨个打电话通知各个订阅者你要结婚的消息。抽象一下，实现发布-订阅模式需要：</span><br><span class="line"></span><br><span class="line">发布者（你）</span><br><span class="line">缓存列表（事件列表(通讯录)，你的朋友们相当于订阅了你的所有消息）</span><br><span class="line">发布消息的时候遍历缓存列表，依次触发里面存放的订阅者的回调函数（挨个打电话）</span><br><span class="line">另外，回调函数中还可以添加很多参数，，订阅者可以接收这些参数，比如你会告诉他们婚礼时间，地点等，订阅者收到消息后可以进行各自的处理。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="发布订阅和DOM2事件池机制"><a href="#发布订阅和DOM2事件池机制" class="headerlink" title="发布订阅和DOM2事件池机制"></a>发布订阅和DOM2事件池机制</h2><h3 id="DOM0和DOM2事件绑定的区别"><a href="#DOM0和DOM2事件绑定的区别" class="headerlink" title="DOM0和DOM2事件绑定的区别"></a>DOM0和DOM2事件绑定的区别</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 语法上的区别</span><br><span class="line">  - box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  - box.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"><span class="number">2.</span> 运行机制上的区别</span><br><span class="line">  - DOM0就是给元素绑定方法(有效的绑定方法只有一个)</span><br><span class="line">  - DOM2是基于事件池机制完成, 每增加一个绑定的方法, 都会往事件池中存放一个...事件触发会依次执行事件池中的方法</span><br><span class="line">  =&gt; 发布订阅其实就是模拟的事件池机制(可以给同一个元素的某个事件绑定多个不同的方法)  </span><br><span class="line"><span class="number">3.</span> DOM2中可以给一些特殊的事件类型绑定方法, 这些DOM0不支持</span><br><span class="line">   DOMContentLoaded(dom结构加载完执行), transitioned</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>发布订阅</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue生命周期</title>
     <url>/2020/03/11/Vue/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</url>
     <content><![CDATA[<h3 id="生命周期钩子函数"><a href="#生命周期钩子函数" class="headerlink" title="生命周期钩子函数"></a>生命周期钩子函数</h3><a id="more"></a>
@@ -59,16 +110,11 @@
 <li>档切换组件(当前组件为缓存时), 会执行beforeDestory/destroyed两个钩子函数</li>
 <li>初始化和销毁时的生命周期钩子函数只会执行一次, beforeUpdate/update可执行多次</li>
 </ol>
-<h3 id="父子组件的生命周期"><a href="#父子组件的生命周期" class="headerlink" title="父子组件的生命周期"></a>父子组件的生命周期</h3><p>初始化组件时:<br> –f–beforeCreate<br> –f–created<br> –f–beforeMount<br> –c–beforeCreate接收不到props中的数据–data未初始化<br> –c–createdchild<br> –c–beforeMount<br> –c–mounted<br> –f–mounted<br>当子组件data中的值发生变化时</p>
+<h3 id="父子组件的生命周期"><a href="#父子组件的生命周期" class="headerlink" title="父子组件的生命周期"></a>父子组件的生命周期</h3><p>初始化组件时:<br> –f–beforeCreate<br> –f–created<br> –f–beforeMount<br> –c–beforeCreate接收不到props中的数据–data未初始化<br> –c–createdchild<br> –c–beforeMount<br> –c–mounted<br> –f–mounted</p>
 ]]></content>
       <categories>
         <category>vue</category>
       </categories>
-  </entry>
-  <entry>
-    <title>杂/观察者和订阅者模式</title>
-    <url>/2020/03/11/%E6%9D%82/%E8%A7%82%E5%AF%9F%E8%80%85%E5%92%8C%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>vuex使用</title>
@@ -120,6 +166,30 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a <span class="comment">// -&gt; moduleA 的状态</span></span><br><span class="line">store.state.b <span class="comment">// -&gt; moduleB 的状态</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>引入css的两种方式</title>
+    <url>/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
+    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><p><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
+<a id="more"></a>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><code>@import url(&quot;css/style.css&quot;)</code></p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
+<li>link<ul>
+<li>属于XHTML标签, 还有rel连接属性等</li>
+<li>优先加载CSS文件到页面</li>
+</ul>
+</li>
+<li>@import<ul>
+<li>属于CSS, 只能加载CSS</li>
+<li>先加载HTML结构在加载CSS文件, 有时候使用@import加载css的页面时会没有样式</li>
+</ul>
+</li>
+</ul>
+<p>– 使用link标签</p>
+]]></content>
+      <categories>
+        <category>css</category>
       </categories>
   </entry>
   <entry>
@@ -185,32 +255,8 @@
       </categories>
   </entry>
   <entry>
-    <title>引入css的两种方式</title>
-    <url>/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><p><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
-<a id="more"></a>
-<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><code>@import url(&quot;css/style.css&quot;)</code></p>
-<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
-<li>link<ul>
-<li>属于XHTML标签, 还有rel连接属性等</li>
-<li>优先加载CSS文件到页面</li>
-</ul>
-</li>
-<li>@import<ul>
-<li>属于CSS, 只能加载CSS</li>
-<li>先加载HTML结构在加载CSS文件, 有时候使用@import加载css的页面时会没有样式</li>
-</ul>
-</li>
-</ul>
-<p>– 使用link标签</p>
-]]></content>
-      <categories>
-        <category>css</category>
-      </categories>
-  </entry>
-  <entry>
     <title>javascript运行机制</title>
-    <url>/2020/03/04/Js/javascript%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
+    <url>/2020/03/04/js/javascript%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<h3 id="javascript单线程"><a href="#javascript单线程" class="headerlink" title="javascript单线程"></a>javascript单线程</h3><p><a href="https://blog.csdn.net/function__/article/details/80883084" target="_blank" rel="noopener">线程问题</a> </p>
 <h3 id="javascript同步异步机制"><a href="#javascript同步异步机制" class="headerlink" title="javascript同步异步机制"></a>javascript同步异步机制</h3><a id="more"></a>
 <blockquote>
@@ -280,7 +326,7 @@
   </entry>
   <entry>
     <title>防抖和节流</title>
-    <url>/2020/03/04/Js/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
+    <url>/2020/03/04/js/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><blockquote>
 <p>触发高频事件后n秒内函数只会执行一次, 如果n秒内高频事件再次被触发, 则重新计算时间</p>
 </blockquote>
@@ -317,7 +363,7 @@
   </entry>
   <entry>
     <title>跨域</title>
-    <url>/2020/03/02/Js/%E8%B7%A8%E5%9F%9F/</url>
+    <url>/2020/03/02/js/%E8%B7%A8%E5%9F%9F/</url>
     <content><![CDATA[<h2 id="跨域是什么"><a href="#跨域是什么" class="headerlink" title="跨域是什么"></a>跨域是什么</h2><ul>
 <li>同源策略请求( 协议,域名,端口号都相同 )</li>
 <li>非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )<a id="more"></a>
