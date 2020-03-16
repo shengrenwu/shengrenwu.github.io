@@ -189,6 +189,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="向往">
+      <meta itemprop="description" content="星河滚烫你是人间理想">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="向往">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">js高阶函数</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-16 18:11:00 / 修改时间：21:02:22" itemprop="dateCreated datePublished" datetime="2020-03-16T18:11:00+08:00">2020-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><blockquote>
+<p>如果一个函数的参数是一个函数 (回调函数) 或者一个函数返回一个函数 (函数科里化)  </p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/13/js/es6%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -220,7 +297,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-14 21:50:28" itemprop="dateModified" datetime="2020-03-14T21:50:28+08:00">2020-03-14</time>
+                <time title="修改时间：2020-03-16 21:02:31" itemprop="dateModified" datetime="2020-03-16T21:02:31+08:00">2020-03-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -243,8 +320,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="es6创建类"><a href="#es6创建类" class="headerlink" title="es6创建类"></a>es6创建类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// es5创建类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fn</span></span>&#123;</span><br><span class="line">    <span class="comment">// 也可以给实例创建属性</span></span><br><span class="line">    y = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 等价于之前的构造函数体</span></span><br><span class="line">    <span class="keyword">constructor</span>(n=1, m=1) &#123;</span><br><span class="line">      <span class="keyword">this</span>.x = n + m		</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//  方法直接写, 就是添加在类原形上的方法</span></span><br><span class="line">    getX()&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>.x)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 前边设置static的, 把当前Fn当做普通对象设置键值对, 只能Fn.gety()使用</span></span><br><span class="line">    <span class="keyword">static</span> gety()&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'类的私有方法'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 静态属性(只有Fn能使用)</span></span><br><span class="line">    <span class="keyword">static</span> one = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 创建实例对象</span></span><br><span class="line"><span class="keyword">let</span> f1 = <span class="keyword">new</span> Fn(<span class="number">10</span>, <span class="number">20</span>)</span><br><span class="line"><span class="built_in">console</span>.log(f1.one, Fn.one) <span class="comment">// undefined 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Fn()  // 当做普通函数执行会报错</span></span><br><span class="line"><span class="built_in">console</span>.dir(Fn)  <span class="comment">// </span></span><br><span class="line"><span class="built_in">console</span>.log(f1) <span class="comment">// &#123;x:30, y:100&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="类的继承"><a href="#类的继承" class="headerlink" title="类的继承"></a>类的继承</h2>
+          <h2 id="es6创建类"><a href="#es6创建类" class="headerlink" title="es6创建类"></a>es6创建类</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/03/13/js/es6%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -891,89 +975,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/02/js/%E8%B7%A8%E5%9F%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="向往">
-      <meta itemprop="description" content="星河滚烫你是人间理想">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="向往">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/03/02/js/%E8%B7%A8%E5%9F%9F/" class="post-title-link" itemprop="url">跨域</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-02 18:11:00" itemprop="dateCreated datePublished" datetime="2020-03-02T18:11:00+08:00">2020-03-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-04 13:46:26" itemprop="dateModified" datetime="2020-03-04T13:46:26+08:00">2020-03-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="跨域是什么"><a href="#跨域是什么" class="headerlink" title="跨域是什么"></a>跨域是什么</h2><ul>
-<li>同源策略请求( 协议,域名,端口号都相同 )</li>
-<li>非同源策略请求( 协议,域名,端口号有一个不同就是跨域 )
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/03/02/js/%E8%B7%A8%E5%9F%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1046,7 +1047,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

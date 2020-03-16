@@ -21,17 +21,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="星河滚烫你是人间理想">
-<meta property="og:type" content="website">
-<meta property="og:title" content="向往">
-<meta property="og:url" content="http://yoursite.com/archives/2020/03/index.html">
+  <meta name="description" content="高阶函数 如果一个函数的参数是一个函数 (回调函数) 或者一个函数返回一个函数 (函数科里化)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js高阶函数">
+<meta property="og:url" content="http://yoursite.com/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="向往">
-<meta property="og:description" content="星河滚烫你是人间理想">
+<meta property="og:description" content="高阶函数 如果一个函数的参数是一个函数 (回调函数) 或者一个函数返回一个函数 (函数科里化)">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-16T10:11:00.000Z">
+<meta property="article:modified_time" content="2020-03-16T13:02:22.198Z">
 <meta property="article:author" content="向往">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2020/03/">
+<link rel="canonical" href="http://yoursite.com/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
 
 
 <script id="page-configurations">
@@ -39,11 +41,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>归档 | 向往</title>
+  <title>js高阶函数 | 向往</title>
   
 
 
@@ -184,232 +186,99 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 12 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="向往">
+      <meta itemprop="description" content="星河滚烫你是人间理想">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="向往">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js高阶函数
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-16 18:11:00 / 修改时间：21:02:22" itemprop="dateCreated datePublished" datetime="2020-03-16T18:11:00+08:00">2020-03-16</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
+        <h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><blockquote>
+<p>如果一个函数的参数是一个函数 (回调函数) 或者一个函数返回一个函数 (函数科里化)  </p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用场景: 写代码时我们希望不破坏原有逻辑而增加一些功能 (aop面向切片编程)</span></span><br><span class="line"><span class="comment">// 定义一个函数, 希望在调用函数之前做一些事情   </span></span><br><span class="line"><span class="keyword">const</span> say = <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'说话'</span>, ...args)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 给所有的函数扩展before方法</span></span><br><span class="line"><span class="built_in">Function</span>.prototype.before = <span class="function"><span class="keyword">function</span>(<span class="params">cb</span>) </span>&#123;  <span class="comment">// 高阶函数, 参数是函数并且返回值是函数</span></span><br><span class="line">    <span class="comment">// console.log(this) // 这里指的是调用before的say方法</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123; <span class="comment">// 必须使用箭头函数, 使用function时this不指向say方法</span></span><br><span class="line">      <span class="comment">// 先调用提前传入的before方法</span></span><br><span class="line">      cb()</span><br><span class="line"></span><br><span class="line">      <span class="comment">// console.log(...args) //  "1", "2", "3"  参数传给say方法</span></span><br><span class="line">      <span class="comment">// 在执行say方法</span></span><br><span class="line">      <span class="keyword">this</span>(...args)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用say之前的逻辑, 返回一个新函数</span></span><br><span class="line"><span class="keyword">let</span> newSay = say.before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'给say调用之前添加的方法'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//  newSay执行指的是say.before执行后返回的函数, 当传递参数时是给say.before执行后的函数传参</span></span><br><span class="line">newSay(<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>)  <span class="comment">// 执行结果: 给say调用之前添加的方法 说话</span></span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-16T18:11:00+08:00"
-              content="2020-03-16">
-          03-16
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" itemprop="url">
-            <span itemprop="name">js高阶函数</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-13T11:11:00+08:00"
-              content="2020-03-13">
-          03-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/13/js/es6%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url">
-            <span itemprop="name">es6面向对象</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-13T10:11:00+08:00"
-              content="2020-03-13">
-          03-13
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/13/js/es5%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" itemprop="url">
-            <span itemprop="name">es5面向对象</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-12T19:53:00+08:00"
-              content="2020-03-12">
-          03-12
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/12/%E6%9D%82/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">发布订阅设计模式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-11T19:19:00+08:00"
-              content="2020-03-11">
-          03-11
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/11/Vue/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" itemprop="url">
-            <span itemprop="name">vue生命周期</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-08T14:37:00+08:00"
-              content="2020-03-08">
-          03-08
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/08/Vue/vuex/" itemprop="url">
-            <span itemprop="name">vuex使用</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-05T14:37:00+08:00"
-              content="2020-03-05">
-          03-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/" itemprop="url">
-            <span itemprop="name">引入css的两种方式</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-05T14:37:00+08:00"
-              content="2020-03-05">
-          03-05
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/05/Html/script%E5%92%8Clink%E6%A0%87%E7%AD%BE/" itemprop="url">
-            <span itemprop="name">script和link标签</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-04T18:11:00+08:00"
-              content="2020-03-04">
-          03-04
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/04/js/javascript%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6/" itemprop="url">
-            <span itemprop="name">javascript运行机制</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-04T13:11:00+08:00"
-              content="2020-03-04">
-          03-04
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/04/js/%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/" itemprop="url">
-            <span itemprop="name">防抖和节流</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
+<h2 id="函数科里化"><a href="#函数科里化" class="headerlink" title="函数科里化"></a>函数科里化</h2><blockquote>
+<p>场景:判断变量的类型</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断一个变量的数据类型</span></span><br><span class="line"><span class="comment">// 判断类型的四种方式 constructor instanceof typeof Object.prototype.toString.call</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkType</span>(<span class="params">content, type</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(content) === <span class="string">`[object <span class="subst">$&#123;type&#125;</span>]`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> bool = checkType(<span class="string">'hello'</span>, <span class="string">'String'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(bool) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>以上代码虽然可以判断变量数据类型, 但是存在不足</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/13/js/es6%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" rel="prev" title="es6面向对象">
+      <i class="fa fa-chevron-left"></i> es6面向对象
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/03/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/03/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
@@ -460,6 +329,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高阶函数"><span class="nav-number">1.</span> <span class="nav-text">高阶函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数科里化"><span class="nav-number">2.</span> <span class="nav-text">函数科里化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
