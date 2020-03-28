@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="媒体查询 主要用于页面的响应式布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css媒体查询和栅格系统">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/Css/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="向往">
+<meta property="og:description" content="媒体查询 主要用于页面的响应式布局">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-18T04:36:00.000Z">
+<meta property="article:modified_time" content="2020-03-28T07:44:42.031Z">
+<meta property="article:author" content="向往">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/03/18/Css/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>css媒体查询和栅格系统 | 向往</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">向往</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">与其去追星星</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/18/Css/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="向往">
+      <meta itemprop="description" content="星河滚烫你是人间理想">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="向往">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          css媒体查询和栅格系统
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-18 12:36:00" itemprop="dateCreated datePublished" datetime="2020-03-18T12:36:00+08:00">2020-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-28 15:44:42" itemprop="dateModified" datetime="2020-03-28T15:44:42+08:00">2020-03-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/css/" itemprop="url" rel="index"><span itemprop="name">css</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><blockquote>
+<p>主要用于页面的响应式布局</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media only screen and (min-width: <span class="number">100</span>px) and (max-width: <span class="number">640</span>px)&#123;</span><br><span class="line">  <span class="comment">// 只对屏幕设备有效, 并且屏幕在最小宽度100px,最大宽度640px内时, 指定的样式生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="网页的三段不同样式"><a href="#网页的三段不同样式" class="headerlink" title="网页的三段不同样式"></a>网页的三段不同样式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span><span class="number">-768</span>px: 手机显示器</span><br><span class="line"><span class="number">768</span><span class="number">-992</span>px: ipad</span><br><span class="line">&gt;=<span class="number">1200</span>px: 电脑</span><br></pre></td></tr></table></figure>
+<p>简单使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">  .box&#123;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (max-width: <span class="number">768</span>px) &#123; <span class="comment">/*手机*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (min-width: <span class="number">768</span>px) and (max-width: <span class="number">992</span>px) &#123;<span class="comment">/*平版*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (min-width: <span class="number">992</span>px) &#123; <span class="comment">/*电脑*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h2><blockquote>
+<p>将网页看做列的模式</p>
+</blockquote>
+<p>制作一个简单栅格系统</p>
+<ol>
+<li>利用百分比宽度制作不同的元素</li>
+<li>利用盒模型巩固栅格系统</li>
+<li>使用浮动使元素处于同一行 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 制作四列栅格系统</span></span><br><span class="line"></span><br><span class="line">  &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">    .col<span class="number">-1</span>&#123;</span><br><span class="line">        <span class="comment">/* 占一列 */</span></span><br><span class="line">        width: <span class="number">25</span>%;</span><br><span class="line">        <span class="comment">/* 设置padding只能去挤压内容区, 而不撑大盒模型, 否则会将栅格系统打乱 */</span></span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-2</span>&#123;</span><br><span class="line">        <span class="comment">/* 占二列 */</span></span><br><span class="line">        width: <span class="number">50</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-3</span>&#123;</span><br><span class="line">        <span class="comment">/* 占三列 */</span></span><br><span class="line">        width: <span class="number">75</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-4</span>&#123;</span><br><span class="line">        <span class="comment">/* 占四列 */</span></span><br><span class="line">        width: <span class="number">100</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .box&#123;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: 1px solid #000;</span><br><span class="line">        background-color: cornflowerblue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  &lt;body&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="box col-4"&gt;导航占一行&lt;/</span>div&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box col-1"</span>&gt;左导航栏&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="box col-3"&gt;右主内容区&lt;/</span>div&gt;</span><br><span class="line">  &lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="媒体查询-栅格系统-Bootsrtap-12列栅格"><a href="#媒体查询-栅格系统-Bootsrtap-12列栅格" class="headerlink" title="媒体查询 + 栅格系统 = Bootsrtap(12列栅格)"></a>媒体查询 + 栅格系统 = Bootsrtap(12列栅格)</h2><p>响应式的手机电脑demo(使用boostrap定义好的会更简单)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">    @media only screen and (max-width: <span class="number">768</span>px) &#123;</span><br><span class="line">        <span class="comment">/* 手机 small */</span></span><br><span class="line">        .col-small<span class="number">-1</span>&#123;</span><br><span class="line">            width: <span class="number">25</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-2</span>&#123;</span><br><span class="line">            width: <span class="number">50</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-3</span>&#123;</span><br><span class="line">            width: <span class="number">75</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-4</span>&#123;</span><br><span class="line">            width: <span class="number">100</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @media only screen and (min-width: <span class="number">768</span>px) &#123;</span><br><span class="line">        <span class="comment">/* 电脑 big */</span></span><br><span class="line">        .col-big<span class="number">-1</span>&#123;</span><br><span class="line">            width: <span class="number">25</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-2</span>&#123;</span><br><span class="line">            width: <span class="number">50</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-3</span>&#123;</span><br><span class="line">            width: <span class="number">75</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-4</span>&#123;</span><br><span class="line">            width: <span class="number">100</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .box&#123;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: 1px solid #000;</span><br><span class="line">        background-color: cornflowerblue;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;body&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div class="box col-big-4 col-small-4"&gt;&lt;/</span>div&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box col-big-1 col-small-4"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div class="box col-big-3 col-small-4"&gt;&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/" rel="prev" title="js高阶函数">
+      <i class="fa fa-chevron-left"></i> js高阶函数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/20/Css/less/" rel="next" title="less">
+      less <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询"><span class="nav-number">1.</span> <span class="nav-text">媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网页的三段不同样式"><span class="nav-number">1.1.</span> <span class="nav-text">网页的三段不同样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栅格系统"><span class="nav-number">2.</span> <span class="nav-text">栅格系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体查询-栅格系统-Bootsrtap-12列栅格"><span class="nav-number">3.</span> <span class="nav-text">媒体查询 + 栅格系统 &#x3D; Bootsrtap(12列栅格)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="向往"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">向往</p>
+  <div class="site-description" itemprop="description">星河滚烫你是人间理想</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shengrenwu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shengrenwu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2639688031@qq.com" title="E-Mail → mailto:2639688031@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">向往</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

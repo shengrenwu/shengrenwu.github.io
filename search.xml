@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>封装vue日历组件</title>
+    <url>/2020/03/22/Vue/%E5%B0%81%E8%A3%85vue%E7%BB%84%E4%BB%B6%E5%87%86%E5%A4%87%E6%AD%A5%E9%AA%A4/</url>
+    <content><![CDATA[<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
+<li>创建自己要封装的组件如Cleandar.vue(进行逻辑编写)</li>
+<li>创建index.js文件夹, 可存放所有封装好的组件<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 存放组件----组件导入到这个文件</span></span><br><span class="line"><span class="keyword">import</span> Clendar <span class="keyword">from</span> <span class="string">'./Clendar'</span></span><br><span class="line"><span class="comment">// 导出日历组件, 多个组件也可以导出 </span></span><br><span class="line"><span class="keyword">export</span> &#123;   </span><br><span class="line">  Clendar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建install文件, 将封装好的组件注册到vue全局<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Clendar&#125; <span class="keyword">from</span> <span class="string">'./index'</span></span><br><span class="line"><span class="comment">// Vue通过use方法使用自己定义的组件需要一个install方法</span></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// 挂载到全局组件, 就可以通过use进行使用</span></span><br><span class="line">  Vue.component(Clendar.name, Clendar) <span class="comment">// 名字, 内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>在main.js中导入就可以通过Vue.use(Clendar)进行使用了</li>
+</ol>
+<h3 id="组件的逻辑"><a href="#组件的逻辑" class="headerlink" title="组件的逻辑"></a>组件的逻辑</h3><p>Cleander.vue </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1.props参数</span><br><span class="line">2.slot定制插槽</span><br><span class="line">3.event自定义事件</span><br><span class="line"></span><br><span class="line">移动端事件</span><br><span class="line">@touchstart &#x3D; &quot;start&quot;</span><br><span class="line">@touchmove &#x3D; &quot;move&quot;</span><br><span class="line">@touchend &#x3D; &quot;end&quot;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>vue</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>less</title>
+    <url>/2020/03/20/Css/less/</url>
+    <content><![CDATA[<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2>]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>css媒体查询和栅格系统</title>
+    <url>/2020/03/18/Css/%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E5%92%8C%E6%A0%85%E6%A0%BC%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><blockquote>
+<p>主要用于页面的响应式布局</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@media only screen and (min-width: <span class="number">100</span>px) and (max-width: <span class="number">640</span>px)&#123;</span><br><span class="line">  <span class="comment">// 只对屏幕设备有效, 并且屏幕在最小宽度100px,最大宽度640px内时, 指定的样式生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="网页的三段不同样式"><a href="#网页的三段不同样式" class="headerlink" title="网页的三段不同样式"></a>网页的三段不同样式</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">0</span><span class="number">-768</span>px: 手机显示器</span><br><span class="line"><span class="number">768</span><span class="number">-992</span>px: ipad</span><br><span class="line">&gt;=<span class="number">1200</span>px: 电脑</span><br></pre></td></tr></table></figure>
+<p>简单使用</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">  .box&#123;</span><br><span class="line">    height: <span class="number">300</span>px;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (max-width: <span class="number">768</span>px) &#123; <span class="comment">/*手机*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (min-width: <span class="number">768</span>px) and (max-width: <span class="number">992</span>px) &#123;<span class="comment">/*平版*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: blue;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  @media only screen and (min-width: <span class="number">992</span>px) &#123; <span class="comment">/*电脑*/</span></span><br><span class="line">    .box&#123;</span><br><span class="line">      background-color: yellow;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;<span class="regexp">/style&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="栅格系统"><a href="#栅格系统" class="headerlink" title="栅格系统"></a>栅格系统</h2><blockquote>
+<p>将网页看做列的模式</p>
+</blockquote>
+<p>制作一个简单栅格系统</p>
+<ol>
+<li>利用百分比宽度制作不同的元素</li>
+<li>利用盒模型巩固栅格系统</li>
+<li>使用浮动使元素处于同一行 </li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 制作四列栅格系统</span></span><br><span class="line"></span><br><span class="line">  &lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">    .col<span class="number">-1</span>&#123;</span><br><span class="line">        <span class="comment">/* 占一列 */</span></span><br><span class="line">        width: <span class="number">25</span>%;</span><br><span class="line">        <span class="comment">/* 设置padding只能去挤压内容区, 而不撑大盒模型, 否则会将栅格系统打乱 */</span></span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-2</span>&#123;</span><br><span class="line">        <span class="comment">/* 占二列 */</span></span><br><span class="line">        width: <span class="number">50</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-3</span>&#123;</span><br><span class="line">        <span class="comment">/* 占三列 */</span></span><br><span class="line">        width: <span class="number">75</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line">    .col<span class="number">-4</span>&#123;</span><br><span class="line">        <span class="comment">/* 占四列 */</span></span><br><span class="line">        width: <span class="number">100</span>%;</span><br><span class="line">        box-sizing: border-box;</span><br><span class="line">        float: left;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .box&#123;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: 1px solid #000;</span><br><span class="line">        background-color: cornflowerblue;</span><br><span class="line">    &#125;</span><br><span class="line">  &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  &lt;body&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="box col-4"&gt;导航占一行&lt;/</span>div&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box col-1"</span>&gt;左导航栏&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">      &lt;div class="box col-3"&gt;右主内容区&lt;/</span>div&gt;</span><br><span class="line">  &lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="媒体查询-栅格系统-Bootsrtap-12列栅格"><a href="#媒体查询-栅格系统-Bootsrtap-12列栅格" class="headerlink" title="媒体查询 + 栅格系统 = Bootsrtap(12列栅格)"></a>媒体查询 + 栅格系统 = Bootsrtap(12列栅格)</h2><p>响应式的手机电脑demo(使用boostrap定义好的会更简单)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;style type=<span class="string">"text/css"</span>&gt;</span><br><span class="line">    @media only screen and (max-width: <span class="number">768</span>px) &#123;</span><br><span class="line">        <span class="comment">/* 手机 small */</span></span><br><span class="line">        .col-small<span class="number">-1</span>&#123;</span><br><span class="line">            width: <span class="number">25</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-2</span>&#123;</span><br><span class="line">            width: <span class="number">50</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-3</span>&#123;</span><br><span class="line">            width: <span class="number">75</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-small<span class="number">-4</span>&#123;</span><br><span class="line">            width: <span class="number">100</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    @media only screen and (min-width: <span class="number">768</span>px) &#123;</span><br><span class="line">        <span class="comment">/* 电脑 big */</span></span><br><span class="line">        .col-big<span class="number">-1</span>&#123;</span><br><span class="line">            width: <span class="number">25</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-2</span>&#123;</span><br><span class="line">            width: <span class="number">50</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-3</span>&#123;</span><br><span class="line">            width: <span class="number">75</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">        .col-big<span class="number">-4</span>&#123;</span><br><span class="line">            width: <span class="number">100</span>%;</span><br><span class="line">            box-sizing: border-box;</span><br><span class="line">            float: left;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .box&#123;</span><br><span class="line">        height: <span class="number">100</span>px;</span><br><span class="line">        border: 1px solid #000;</span><br><span class="line">        background-color: cornflowerblue;</span><br><span class="line">    &#125;</span><br><span class="line">    &lt;<span class="regexp">/style&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">    &lt;body&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div class="box col-big-4 col-small-4"&gt;&lt;/</span>div&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"box col-big-1 col-small-4"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div class="box col-big-3 col-small-4"&gt;&lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/body&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>css</category>
+      </categories>
+  </entry>
+  <entry>
     <title>js高阶函数</title>
     <url>/2020/03/16/js/js%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><blockquote>
@@ -193,9 +247,13 @@
   <entry>
     <title>引入css的两种方式</title>
     <url>/2020/03/05/Css/%E5%BC%95%E5%85%A5css%E7%9A%84%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F/</url>
-    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><p><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
+    <content><![CDATA[<h2 id="link"><a href="#link" class="headerlink" title="link"></a>link</h2><blockquote>
+<p>将css引入到页面<br><code>&lt;link href=&quot;地址&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;</code></p>
+</blockquote>
 <a id="more"></a>
-<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><p><code>@import url(&quot;css/style.css&quot;)</code></p>
+<h2 id="import"><a href="#import" class="headerlink" title="@import"></a>@import</h2><blockquote>
+<p>将css引入到css<br><code>@import url(&quot;css/style.css&quot;)</code></p>
+</blockquote>
 <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><ul>
 <li>link<ul>
 <li>属于XHTML标签, 还有rel连接属性等</li>
