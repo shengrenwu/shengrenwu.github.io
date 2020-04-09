@@ -1,11 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>移动web</title>
+    <url>/2020/04/04/%E6%9D%82/%E7%A7%BB%E5%8A%A8web/</url>
+    <content><![CDATA[<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><a id="more"></a>
+<h3 id="pc常见浏览器"><a href="#pc常见浏览器" class="headerlink" title="pc常见浏览器"></a>pc常见浏览器</h3><blockquote>
+<p>谷歌, 火狐, 欧朋, ie</p>
+</blockquote>
+<h3 id="移动端常见浏览器"><a href="#移动端常见浏览器" class="headerlink" title="移动端常见浏览器"></a>移动端常见浏览器</h3><blockquote>
+<p>qq浏览器, uc浏览器, 夸克</p>
+</blockquote>
+<h3 id="浏览器内核"><a href="#浏览器内核" class="headerlink" title="浏览器内核"></a>浏览器内核</h3><table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>前缀</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Chrome</td>
+<td>Blink</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>IE</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>FireFox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Blink</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>国内的一些手机浏览器都是根据webkit修改过来的内核, 兼容移动端主流浏览器, 处理webkit内核浏览器即可</p>
+</blockquote>
+<h2 id="移动端调试方法"><a href="#移动端调试方法" class="headerlink" title="移动端调试方法"></a>移动端调试方法</h2><ul>
+<li>谷歌浏览器模拟手机调试</li>
+<li>搭建本地web服务器, 手机和浏览器一个局域网内, 通过手机访问服务器</li>
+<li>使用外网服务器, 直接ip或域名访问</li>
+</ul>
+<h2 id="理想视口"><a href="#理想视口" class="headerlink" title="理想视口"></a>理想视口</h2><blockquote>
+<p>meta视口标签</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"viewport"</span> content=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="移动端开发选择"><a href="#移动端开发选择" class="headerlink" title="移动端开发选择"></a>移动端开发选择</h2><ol>
+<li><p>单独制作移动端页面</p>
+<blockquote>
+<p>通过判断设备, 如果是移动端浏览器打开的, 则跳转到移动端页面</p>
+</blockquote>
+</li>
+<li><p>响应式页面</p>
+<blockquote>
+<p>通过判断屏幕宽度来改变样式, 来适应不同终端</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="移动端技术"><a href="#移动端技术" class="headerlink" title="移动端技术"></a>移动端技术</h2><ol>
+<li>兼容: <blockquote>
+<p>移动端浏览器基本以webkit为主, 可以放心使用h5标签和c3样式, 只需要考虑webkit前缀即可</p>
+</blockquote>
+</li>
+<li>初始化: <blockquote>
+<p>通过normalize.css同一样式</p>
+</blockquote>
+</li>
+<li>盒模型(c3中的padding和border不会撑大盒模型)<br>box-sizing: border-box</li>
+</ol>
+<h2 id="特殊样式"><a href="#特殊样式" class="headerlink" title="特殊样式"></a>特殊样式</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span>移动端中使用a标签, 点击时背景会高亮, 需要清除, 设置transpatent完成透明</span><br><span class="line">-webkit-tap-highlight-color: transparent;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 移动端浏览器默认的外观, 在ios上加上这个属性才能改按钮和输入框自定义样式</span><br><span class="line">-webkit-appearance: none;</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 禁止长按页面时的弹出菜单</span><br><span class="line">img, a&#123; -webkit-touch-callout: none &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="移动端布局"><a href="#移动端布局" class="headerlink" title="移动端布局"></a>移动端布局</h2><ol>
+<li>单独制作移动端页面<blockquote>
+<p>flex弹性布局, rem+媒体查询布局, 流式布局</p>
+</blockquote>
+</li>
+<li>响应式<blockquote>
+<p>媒体查询, bootstrap</p>
+</blockquote>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>移动web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>封装vue日历组件</title>
     <url>/2020/03/22/Vue/%E5%B0%81%E8%A3%85vue%E7%BB%84%E4%BB%B6%E5%87%86%E5%A4%87%E6%AD%A5%E9%AA%A4/</url>
     <content><![CDATA[<h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><ol>
 <li>创建自己要封装的组件如Cleandar.vue(进行逻辑编写)</li>
-<li>创建index.js文件夹, 可存放所有封装好的组件<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 存放组件----组件导入到这个文件</span></span><br><span class="line"><span class="keyword">import</span> Clendar <span class="keyword">from</span> <span class="string">'./Clendar'</span></span><br><span class="line"><span class="comment">// 导出日历组件, 多个组件也可以导出 </span></span><br><span class="line"><span class="keyword">export</span> &#123;   </span><br><span class="line">  Clendar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>创建index.js文件夹, 可存放所有封装好的组件<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 存放组件----组件导入到这个文件</span></span><br><span class="line"><span class="keyword">import</span> Clendar <span class="keyword">from</span> <span class="string">'./Clendar'</span></span><br><span class="line"><span class="comment">// 导出日历组件, 多个组件也可以导出 </span></span><br><span class="line"><span class="keyword">export</span> &#123;   </span><br><span class="line">  Clendar</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>创建install文件, 将封装好的组件注册到vue全局<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;Clendar&#125; <span class="keyword">from</span> <span class="string">'./index'</span></span><br><span class="line"><span class="comment">// Vue通过use方法使用自己定义的组件需要一个install方法</span></span><br><span class="line"><span class="keyword">const</span> install = <span class="function"><span class="keyword">function</span>(<span class="params">Vue</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">  <span class="comment">// 挂载到全局组件, 就可以通过use进行使用</span></span><br><span class="line">  Vue.component(Clendar.name, Clendar) <span class="comment">// 名字, 内容</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  install</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>在main.js中导入就可以通过Vue.use(Clendar)进行使用了</li>
 </ol>
@@ -18,7 +114,16 @@
   <entry>
     <title>less</title>
     <url>/2020/03/20/Css/less/</url>
-    <content><![CDATA[<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2>]]></content>
+    <content><![CDATA[<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><a id="more"></a>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">.div1&#123;</span><br><span class="line">  .div2&#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="amp-本身"><a href="#amp-本身" class="headerlink" title="&amp;本身"></a>&amp;本身</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">.div&#123;</span><br><span class="line">  &amp;:hover&#123;</span><br><span class="line">    <span class="comment">/*div的hover样式*/</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="定义变量-‘-符号’-好用"><a href="#定义变量-‘-符号’-好用" class="headerlink" title="定义变量, ‘@符号’(好用)"></a>定义变量, ‘@符号’(好用)</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@变量名 : css属性值</span><br><span class="line"></span><br><span class="line">例: @bgc : rgb(<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">使用:</span><br><span class="line">  .div&#123;</span><br><span class="line">    background: @bgc;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="less引入less"><a href="#less引入less" class="headerlink" title="less引入less"></a>less引入less</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@<span class="keyword">import</span> url(<span class="string">'b.less'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="less常用"><a href="#less常用" class="headerlink" title="less常用"></a>less常用</h3><blockquote>
+<p>mixin.less    组件使用: @import ‘../style/mixin’;</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">@blue: #3190e8;  </span><br><span class="line">@bc: #e4e4e4;</span><br><span class="line">@fc:#fff;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 背景图片地址和大小</span></span><br><span class="line">.bis(@url) &#123; </span><br><span class="line">	background-image: url(@url);</span><br><span class="line">	background-repeat: no-repeat;</span><br><span class="line">	background-size: <span class="number">100</span>% <span class="number">100</span>%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定位全屏</span></span><br><span class="line">.allcover&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	top:<span class="number">0</span>;</span><br><span class="line">	right:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//transform上下左右居中</span></span><br><span class="line">.ctt &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	top: <span class="number">50</span>%;</span><br><span class="line">    left: <span class="number">50</span>%;</span><br><span class="line">    transform: translate(<span class="number">-50</span>%, <span class="number">-50</span>%);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定位上下左右居中</span></span><br><span class="line">.ctp(@width, @height) &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	top: <span class="number">50</span>%;</span><br><span class="line">    left: <span class="number">50</span>%;</span><br><span class="line">    margin-top: -@height/<span class="number">2</span>;</span><br><span class="line">    margin-left: -@width/<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定位上下居中</span></span><br><span class="line">.tb &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	top: <span class="number">50</span>%;</span><br><span class="line">    transform: translateY(<span class="number">-50</span>%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定位左右居中</span></span><br><span class="line">.lr &#123;  </span><br><span class="line">	position: absolute;</span><br><span class="line">	left: <span class="number">50</span>%;</span><br><span class="line">    transform: translateX(<span class="number">-50</span>%);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//宽高</span></span><br><span class="line">.wh(@width, @height)&#123;</span><br><span class="line">	width: @width;</span><br><span class="line">	height: @height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字体大小、行高、字体</span></span><br><span class="line">.ft(@size, @line-height) &#123;  </span><br><span class="line">	font-size: @size;</span><br><span class="line">	line-height:@line-height;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字体大小，颜色</span></span><br><span class="line">.sc(@size, @color)&#123;</span><br><span class="line">	font-size: @size;</span><br><span class="line">	color: @color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//flex 布局和 子元素 对其方式</span></span><br><span class="line">.fj(@type: space-between)&#123;</span><br><span class="line">	display: flex;</span><br><span class="line">	justify-content: @type;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>css</category>
       </categories>
@@ -118,11 +223,11 @@
     <content><![CDATA[<blockquote>
 <p>发布订阅</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">人的日常生活离不开各种人际交涉，比如你的朋友有很多，这时候你要结婚了，要以你为发布者，打开你的通讯录，挨个打电话通知各个订阅者你要结婚的消息。抽象一下，实现发布-订阅模式需要：</span><br><span class="line"></span><br><span class="line">发布者（你）</span><br><span class="line">缓存列表（事件列表(通讯录)，你的朋友们相当于订阅了你的所有消息）</span><br><span class="line">发布消息的时候遍历缓存列表，依次触发里面存放的订阅者的回调函数（挨个打电话）</span><br><span class="line">另外，回调函数中还可以添加很多参数，，订阅者可以接收这些参数，比如你会告诉他们婚礼时间，地点等，订阅者收到消息后可以进行各自的处理。</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<!--more-->
 <h2 id="发布订阅和DOM2事件池机制"><a href="#发布订阅和DOM2事件池机制" class="headerlink" title="发布订阅和DOM2事件池机制"></a>发布订阅和DOM2事件池机制</h2><h3 id="DOM0和DOM2事件绑定的区别"><a href="#DOM0和DOM2事件绑定的区别" class="headerlink" title="DOM0和DOM2事件绑定的区别"></a>DOM0和DOM2事件绑定的区别</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="number">1.</span> 语法上的区别</span><br><span class="line">  - box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  - box.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;)</span><br><span class="line"><span class="number">2.</span> 运行机制上的区别</span><br><span class="line">  - DOM0就是给元素绑定方法(有效的绑定方法只有一个)</span><br><span class="line">  - DOM2是基于事件池机制完成, 每增加一个绑定的方法, 都会往事件池中存放一个...事件触发会依次执行事件池中的方法</span><br><span class="line">  =&gt; 发布订阅其实就是模拟的事件池机制(可以给同一个元素的某个事件绑定多个不同的方法)  </span><br><span class="line"><span class="number">3.</span> DOM2中可以给一些特殊的事件类型绑定方法, 这些DOM0不支持</span><br><span class="line">   DOMContentLoaded(dom结构加载完执行), transitioned</span><br></pre></td></tr></table></figure>
-
-]]></content>
+<h2 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h2>]]></content>
       <tags>
         <tag>发布订阅</tag>
       </tags>
